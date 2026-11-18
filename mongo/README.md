@@ -92,3 +92,5 @@ Indexes are created for the reference codes, `usage_id`, `age_range`, `home_libr
 - The MongoDB database name defaults to `sfils_mongo`.
 - MongoDB's automatically generated `_id` is retained in each document.
 - The original `usage_id` field is also retained so the application can find and update a usage document.
+
+AI was used to assist in the writing of the Python code.
