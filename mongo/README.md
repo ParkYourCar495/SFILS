@@ -11,8 +11,8 @@ The original MySQL in the project root is not modified.
 ## Requirements
 
 - Python
-- MongoDB Community Server running locally
-- The SFILS Excel workbook used by Assignment 1
+- MongoDB Community Server
+- SFILS Excel workbook used in Assignment 1
 
 Install Python from the project root:
 
@@ -23,7 +23,7 @@ python -m pip install -r mongo/requirements.txt
 ## Configuration
 
 The application reads the project-root `.env` file. 
-Add these MongoDB settings to that file:
+Add MongoDB settings to the file:
 
 ```
 MONGO_URI=mongodb://localhost:27017/
@@ -48,17 +48,17 @@ python mongo/database/import_data.py
 python mongo/database/indexes.py
 ```
 
-The import script performs a full reload. 
+The import script performs a full reload.
 It deletes the existing documents in the four SFILS collections before importing the workbook.
 
-The importer preserves the Assignment 1 data-cleaning behavior:
+The importer preserves the Assignment 1 behavior:
 - Empty Excel cells become MongoDB `null` values.
 - Literal values such as `-` are preserved.
 - Numeric fields are converted to integers.
 - Boolean fields are converted to `true`, `false`, or `null`.
 - `usage_id` is assigned sequentially starting at 1.
 
-## Running the application
+## Running Application
 
 From the project root:
 
@@ -66,14 +66,14 @@ From the project root:
 python mongo/app/main.py
 ```
 
-The terminal menu supports:
+The menu supports:
 1. View patron types
 2. View home libraries
 3. View notification methods
 4. Search by age range
 5. Search by home library code
 6. View checkout and renewal summary
-7. Update a usage document's checkout total
+7. Update a document's checkout total
 0. Exit
 
 ## MongoDB Design
@@ -85,7 +85,7 @@ The database contains four collections:
 - `notification_media`
 - `library_usage`
 
-Indexes are created for the reference codes, `usage_id`, `age_range`, `home_library_code`, and `patron_type_code`.
+Indexes are created for the reference codes `usage_id`, `age_range`, `home_library_code`, and `patron_type_code`.
 
 ## Notes
 
